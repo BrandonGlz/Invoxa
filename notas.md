@@ -25,7 +25,7 @@ git push origin main                  # Sube la integración al servidor
 Exportar el zip o clonar el repositorio en htdocs
 (deben tener instalado git)
 
-git clone 
+git clone https://github.com/BrandonGlz/Invoxa.git
 
 Antes de iniciar, se deben de descargar las dependencias de node en la carpeta de Backend
 (deben de tener instalado node js)
