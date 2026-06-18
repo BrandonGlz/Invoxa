@@ -1,0 +1,36 @@
+.sidemenu-container {
+    display: flex;
+    flex-direction: column; 
+    gap: 15px;
+    padding: 120px 0px 20px 0px; 
+    height: 100%; 
+    box-sizing: border-box;
+    overflow: hidden; 
+}
+
+.sidemenu-container button {
+    background-color: transparent;
+    padding: 10px 40px;
+    border: none;
+    color: #002244;
+    cursor: pointer;
+    width: 100%;
+    display: flex;
+    overflow: hidden;
+    flex-direction: row;   
+    align-items: center;      
+    justify-content: flex-start;  
+    gap: 15px;                
+    font-size: 16px;
+    font-weight: bold;    
+}
+
+.sidemenu-container button .btn-icon {
+    width: 45px;
+    height: 45px;
+}
+
+.sidemenu-container button:hover {
+    background-color: #E6EDF5;
+}
+
