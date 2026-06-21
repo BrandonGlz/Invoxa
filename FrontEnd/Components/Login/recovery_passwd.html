@@ -1,2 +1,47 @@
-Recuperar passwd
-<a href="/Invoxa/FrontEnd/Components/Login/new_passwd.html">Siguiente</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoxa - Recuperar contraseña</title>
+    <link rel="stylesheet" href="/Invoxa/FrontEnd/Css/StyleGeneral.css">
+    <link rel="stylesheet" href="/Invoxa/FrontEnd/Components/Login/Styles/login.css">
+</head>
+<body class="login-body">
+
+    <div class="div-login-tarjeta">
+        <div class="div-login-izquierda">
+            <div class="div-login-logo">
+                <img src="/Invoxa/FrontEnd/Api/logo/circulos.svg" alt="Marca Invoxa" class="img-login-marca">
+                <img src="/Invoxa/FrontEnd/Api/logo/invoxanombre.jpg" alt="Invoxa" class="img-login-logo">
+            </div>
+
+            <h2 class="titulo-recuperar">Recuperar contraseña</h2>
+            <p class="txt-descripcion">Ingresa tu correo electrónico y te enviaremos un código para validar tu identidad.</p>
+
+            <form id="frm-recuperar">
+                <div class="div-campo">
+                    <label for="inp-correo" class="lbl-campo">Correo electrónico</label>
+                    <input type="email" id="inp-correo" name="correo" placeholder="tucorreo@gmail.com" required>
+                </div>
+
+                <div class="div-recuperar">
+                    <a href="/Invoxa/FrontEnd/login.html" class="lnk-olvide">Volver a Iniciar Sesión</a>
+                </div>
+
+                <div id="div-error-recuperar"></div>
+
+                <button type="submit" id="btn-recuperar">Enviar código</button>
+            </form>
+        </div>
+
+        <div class="div-login-derecha">
+            <div class="div-login-panel">
+                <div class="div-login-icono">
+                    <img src="/Invoxa/FrontEnd/Api/logo/invoxa.png" alt="Invoxa" class="img-login-icono">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
