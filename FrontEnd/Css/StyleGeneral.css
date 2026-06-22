@@ -1,3 +1,16 @@
+:root {
+    --azul-primario: #002244;
+    --azul-secundario: #2C3E50;
+    --azul-acento: #3498DB;
+    --cafe: #C4B097;
+    --verde-exito: #27AE60;
+    --rojo-peligro: #E74C3C;
+    --color-fondo: #E6EDF5;
+    --color-blanco: #FFFFFF;
+}
+
+
+
 * {
     margin: 0;
     padding: 0;
