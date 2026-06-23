@@ -1,2 +1,50 @@
-Crear nueva passwd
-<a href="/Invoxa/FrontEnd/Components/Login/back_main.html">Siguiente</a>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Invoxa - Recuperar contraseña</title>
+    <link rel="stylesheet" href="../../Css/StyleGeneral.css">
+    <link rel="stylesheet" href="./Styles/new_passwd.css">
+</head>
+<body class="login-body">
+
+    <div class="div-login-tarjeta">
+        <div class="div-login-izquierda">
+            <div class="div-login-logo">
+                <img src="../../Api/logo/circulos.svg" alt="Marca Invoxa" class="img-login-marca">
+                <img src="../../Api/logo/invoxaNombre.jpg" alt="Invoxa" class="img-login-logo">
+            </div>
+
+            <h2 class="titulo-recuperar">Crear nueva contraseña</h2>
+            <p class="txt-descripcion">Ingresa el codigo que enviamos a tu correo para crear una nueva contraseña.</p>
+
+            <form id="frm-recuperar">
+                <div class="div-campo">
+                    <label for="inp-validacion-cod" class="lbl-campo">Codigo de validacion</label>
+                    <input type="text" id="inp-validacion-cod" name="validacion-cod" placeholder="Ingresa el código de validación" required>
+
+                    <label for="inp-nueva" class="lbl-campo">Nueva contraseña</label>
+                    <input type="password" id="inp-nueva" name="nueva" placeholder="Ingresa tu nueva contraseña" required>
+                </div>
+
+                <div class="div-recuperar">
+                    <a href="../Login/login.html" class="lnk-olvide">Volver a Iniciar Sesión</a>
+                </div>
+
+                <div id="div-error-recuperar"></div>
+
+                <button type="submit" id="btn-recuperar">Enviar código</button>
+            </form>
+        </div>
+
+        <div class="div-login-derecha">
+            <div class="div-login-panel">
+                <div class="div-login-icono">
+                    <img src="../../Api/logo/invoxa.png" alt="Invoxa" class="img-login-icono">
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

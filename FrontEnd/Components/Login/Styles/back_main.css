@@ -1,0 +1,188 @@
+.login-body {
+    background-color: var(--color-fondo);
+    justify-content: center;
+    align-items: center;
+}
+
+/* Tarjeta principal */
+.div-login-tarjeta {
+    background-color: var(--color-blanco);
+    border-radius: 16px;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+    width: 820px;
+    height: 480px;
+    display: flex;
+}
+
+/* Columna izquierda */
+.div-login-izquierda {
+    flex: 58%;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.div-login-logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.img-login-marca {
+    width: 30px;
+    height: auto;
+}
+
+.img-login-logo {
+    width: 220px;
+    height: auto;
+}
+
+/* Formularios */
+.div-login-izquierda form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.div-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.lbl-campo {
+    font-size: 13px;
+    color: var(--azul-primario);
+    font-weight: 600;
+}
+
+.div-login-izquierda form input {
+    border: none;
+    border-bottom: 2px solid #D0D5DD;
+    padding: 8px 0;
+    font-size: 14px;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+}
+
+.div-login-izquierda form input::placeholder {
+    color: #9AA3AF;
+}
+
+.div-login-izquierda form input:focus {
+    border-bottom-color: var(--azul-primario);
+}
+
+/* Enlace olvidar contraseña */
+.div-recuperar {
+    text-align: right;
+    margin-top: -6px;
+}
+
+.lnk-olvide {
+    font-size: 12px;
+    color: #9AA3AF;
+    text-decoration: none;
+}
+
+.lnk-olvide:hover {
+    color: var(--azul-primario);
+}
+
+/* Botones auth */
+#btn-login,
+#btn-recuperar {
+    background-color: var(--azul-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 20px;
+    padding: 10px 32px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    align-self: center;
+    font-family: inherit;
+}
+
+#btn-login:hover,
+#btn-recuperar:hover {
+    background-color: var(--azul-secundario);
+}
+
+/* Mensajes de error */
+#div-error-login:empty,
+#div-error-recuperar:empty {
+    display: none;
+}
+
+#div-error-login,
+#div-error-recuperar {
+    color: var(--rojo-peligro);
+    font-size: 13px;
+}
+
+/* Recuperar contraseña */
+.titulo-recuperar {
+    color: var(--azul-primario);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.txt-descripcion {
+    color: #9AA3AF;
+    font-size: 13px;
+    line-height: 1.4;
+}
+
+.img-palomita {
+    width: 60px;
+    height: auto;
+    margin-top: -20px;
+}
+
+.div-login-back {
+    width: 100%;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 12px;
+    flex: 1;
+}
+
+/* Columna derecha */
+.div-login-derecha {
+    flex: 35%;
+}
+
+.div-login-panel {
+    background-color: var(--azul-primario);
+    border-radius: 0 16px 16px 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.div-login-icono {
+    width: 130px;
+    height: 130px;
+    background-color: var(--color-blanco);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 5px var(--color-fondo);
+}
+
+.img-login-icono {
+    width: 110px;
+    height: auto;
+}
