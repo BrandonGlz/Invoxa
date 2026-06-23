@@ -4,7 +4,7 @@ import { Url } from "./Url.js";
 //Validar existencia de sesión en sessionStorage, si no existe, redirige a login y aborta el script
 const sessionActiva = sessionStorage.getItem('invoxa_session');
 if (!sessionActiva) {
-    window.location.replace('login.html');
+    window.location.replace('/Invoxa/FrontEnd/Components/login/login.html');
     //Esto detiene la ejecución del bloque de código para evitar carga de vistas no autorizadas
     throw new Error("Sin sesión activa. Deteniendo carga del sistema.");
 }

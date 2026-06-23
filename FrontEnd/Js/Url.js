@@ -1,17 +1,18 @@
 export var Url = {
-    //Ruta base para las peticiones al backend
     api: '/api/',
     
     load: {
         components: [
             { parent: 'sidemenu', url: 'Components/sidemenu' },
             { parent: 'header', url: 'Components/header' },
-            { parent: 'ventas', url: 'Components/dashboard' },
-            { parent: 'ganancias', url: 'Components/facturas' },
-            { parent: 'facturas', url: 'Components/reportes' },
-            { parent: 'inventario', url: 'Components/proveedores' },
+            { parent: 'dashboard', url: 'Components/dashboard' },
+            { parent: 'facturas', url: 'Components/facturas' },
+            { parent: 'reportes', url: 'Components/reportes' },
+            { parent: 'proveedores', url: 'Components/proveedores' },
             { parent: 'usuarios', url: 'Components/usuarios' },
-            { parent: 'historial', url: 'Components/historial' }
+            { parent: 'historial', url: 'Components/historial' },
+            { parent: 'perfil', url: 'Components/perfil' },
+            { parent: 'configuracion', url: 'Components/configuracion' }
         ]
     }
 };

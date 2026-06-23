@@ -4,7 +4,39 @@
     <div class="header-left">
         <img src="/Invoxa/FrontEnd/Api/logo/invoxa.png" alt="header" class="img">
     </div>
+
+    <div class="header-right">
+        <button class="btn-notificacion">
+            <span>Notificaciones</span>
+        </button>
+
+        <div class="perfil-container">
+            <button class="btn-perfil" id="btn-perfil-toggle">
+                <div class="perfil-textos">
+                    <span class="perfil-nombre">Nombre usuario</span>
+                    <span class="perfil-rol">Rol</span>
+                </div>
+                <span class="icono-flecha">▼</span>
+            </button>
+
+            <div class="dropdown-perfil" id="dropdown-perfil">
+                <div class="dropdown-header">
+                    <div class="avatar-placeholder"></div>
+                    <div class="dropdown-info">
+                        <span class="info-nombre">Nombre usuario</span>
+                        <span class="info-correo">correo@electronico.com</span>
+                    </div>
+                </div>
+                <hr>
+                <div class="dropdown-body">
+                    <a href="#perfil" class="dropdown-item">Mi perfil</a>
+                    <a href="#configuracion" class="dropdown-item">Configuracion</a>
+                </div>
+                <hr>
+                <div class="dropdown-footer">
+                    <a href="/Invoxa/FrontEnd/Components/login/login.html" class="dropdown-item logout" id="btn-cerrar-sesion">Cerrar sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
-
-
-

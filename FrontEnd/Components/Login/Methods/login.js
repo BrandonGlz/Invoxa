@@ -1,13 +1,17 @@
 const procesarAutenticacion = async (usuario, password) => {
     try {
         const endpoint = 'http://localhost:3000/api/login'; 
+        const contenedorError = document.getElementById('div-error-login');
+        
+        if (contenedorError) {
+            contenedorError.textContent = '';
+        }
 
         const peticion = await fetch(endpoint, {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
             },
-            // Se mantiene "contraseña" para asegurar compatibilidad con el backend
             body: JSON.stringify({ nombre: usuario, contraseña: password })
         });
 
@@ -19,26 +23,29 @@ const procesarAutenticacion = async (usuario, password) => {
             sessionStorage.setItem('invoxa_session', respuesta[0].num);
             window.location.replace('/Invoxa/FrontEnd/index.html');
         } else {
-            console.error("Acceso denegado: Credenciales inválidas o usuario inactivo.");
+            if (contenedorError) {
+                contenedorError.textContent = "Acceso denegado: Credenciales inválidas o usuario inactivo.";
+            }
         }
 
     } catch (error) {
-        console.error("[Auth Error]:", error);
+        const contenedorError = document.getElementById('div-error-login');
+        if (contenedorError) {
+            contenedorError.textContent = "Ocurrió un error al procesar la solicitud de acceso.";
+        }
     }
 };
 
-// Inicialización de eventos del DOM
 document.addEventListener("DOMContentLoaded", () => {
-    const loginForm = document.getElementById('login-form');
+    const loginForm = document.getElementById('frm-login');
 
     if (loginForm) {
         loginForm.addEventListener('submit', (e) => {
             e.preventDefault();
 
-            const usuario = document.getElementById('user').value;
-            const password = document.getElementById('password').value;
+            const usuario = document.getElementById('inp-usuario').value;
+            const password = document.getElementById('inp-password').value;
 
-            // Invocación de la función asíncrona aislada
             procesarAutenticacion(usuario, password);
         });
     }

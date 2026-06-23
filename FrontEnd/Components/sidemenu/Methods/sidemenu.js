@@ -1,55 +1,44 @@
-//Importacion de componentes
-import { Componentes } from "../../Js/Servicios.js"; 
-import { cargarInventario } from "../inventario/inventario.js";
-import { cargarFacturas } from "../facturas/facturas.js";  
-import { cargarGanancias, pestañas } from "../ganancias/ganancias.js";
-import { recargasButze } from "../ventas/ventas.js"; 
+import { Componentes } from "../../../Js/Servicios.js"; 
+//import { nombreMetodo } from "../../dashboard/Methods/dashboard.js";
 
-//Asignacion de contenido
 const rutas = [
-    { parent: "content", url: "Components/ventas", init: recargasButze },
-    { parent: "content", url: "Components/ganancias", init: () => { cargarGanancias(); cargarFacturas(); }, toggle: pestañas },
-    { parent: "content", url: "Components/facturas", init: cargarFacturas },
-    { parent: "content", url: "Components/inventario", init: cargarInventario},
-    { parent: "content", url: "Components/analisis" }
+    { nombre: "dashboard", parent: "content", url: "Components/dashboard", },//init: nombreMetodoImportado
+    { nombre: "facturas", parent: "content", url: "Components/facturas", },
+    { nombre: "reportes", parent: "content", url: "Components/reportes", },
+    { nombre: "proveedores", parent: "content", url: "Components/proveedores", },
+    { nombre: "usuarios", parent: "content", url: "Components/usuarios", },
+    { nombre: "historial", parent: "content", url: "Components/historial", },
+    { nombre: "configuracion", parent: "content", url: "Components/configuracion", }
 ];
 
-document.querySelectorAll(".sidemenu-container button").forEach(btn => {
-    btn.addEventListener("click", async () => {
-        const nombre = btn.getAttribute("contenido"); 
-        const ruta = rutas.find(r => r.url.includes(nombre));
+const sideMenu = document.getElementById("sidemenu");
+const content = document.getElementById("content");
+const modulos = document.querySelector(".modulos");
 
-        if (!ruta) {
-            console.warn("No se encontró ruta para:", nombre);
-            return;
-        }
+if (sideMenu) {
+    sideMenu.addEventListener("click", async (e) => {
+        const btn = e.target.closest("button");
+
+        if (!btn || !btn.hasAttribute("contenido")) return;
+
+        const nombre = btn.getAttribute("contenido"); 
+        const ruta = rutas.find(r => r.nombre === nombre);
+
+        if (!ruta) return;
 
         try {
             await Componentes(ruta);
 
-            if (ruta.init && typeof ruta.init === "function") {
-            await ruta.init(); // asegúrate de usar await si init es async
-            }
-
-            if (ruta.toggle && typeof ruta.toggle === "function") {
-                ruta.toggle(); // aquí sí ejecutamos el toggle
-            }
+            if (typeof ruta.init === "function") await ruta.init(); 
+            if (typeof ruta.toggle === "function") ruta.toggle(); 
 
             const modulo = document.querySelector("#h-modulo");
             if (modulo) {
                 modulo.textContent = `Módulo de ${nombre.charAt(0).toUpperCase() + nombre.slice(1)}`;
-            } else {
-                console.error("No se encontró el h1 con id 'h-modulo'");
             }
 
         } catch (err) {
-            console.error("Error al cargar componente:", ruta.url, err);
+            console.error(err);
         }
     });
-});
-
-//Constantes para los id 
-const sideMenu = document.getElementById("sidemenu");
-const content = document.getElementById("content");
-const modulos = document.querySelector(".modulos"); 
-
+}
