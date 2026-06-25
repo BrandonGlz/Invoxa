@@ -1,9 +1,9 @@
 const express = require('express');
 const Api = express.Router();
-const Ganancias = require('../../Services/Views/Ganancias');
+const KpiFacturas = require('../../Services/Kpis/Kpis');
 
 Api.get('/', (req, res) => {
-    Ganancias.ViewGanancias((error, resultado) => {
+    KpiFacturas.KpiFacturas((error, resultado) => {
         if (error) return res.status(500).send(error);
         res.json(resultado);
     });

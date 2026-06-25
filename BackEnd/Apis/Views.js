@@ -1,9 +1,11 @@
 const Host = require('../Config/Host');
 
 //Controllers
-const Ganancias = require('../Controllers/Views/Ganancias');
+const GraficaPastel = require('../Controllers/Views/Grafica_pastel');
+const GraficaBarras = require('../Controllers/Views/Grafica_barras');
 
 //Rutas
-Host.use('/api/ganancias', Ganancias);
+Host.use('/api/graficaPastel', GraficaPastel);
+Host.use('/api/graficaBarras', GraficaBarras);
 
 module.exports = Host;

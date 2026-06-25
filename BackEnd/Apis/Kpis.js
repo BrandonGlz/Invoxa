@@ -1,9 +1,9 @@
 const Host = require('../Config/Host');
 
 //Controllers
-const Facturas = require('../Controllers/Kpis/Facturas');
+const KpiFacturas = require('../Controllers/Kpis/Kpis');
 
 //Rutas
-Host.use('/api/gananciasFacturas', Facturas);
+Host.use('/api/kpiFacturas', KpiFacturas);
 
 module.exports = Host;

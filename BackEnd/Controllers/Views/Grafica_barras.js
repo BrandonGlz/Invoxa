@@ -1,9 +1,9 @@
 const express = require('express');
 const Api = express.Router();
-const Facturas = require('../../Services/Kpis/Facturas');
+const GraficaBarras = require('../../Services/Views/Grafica_barras');
 
 Api.get('/', (req, res) => {
-    Facturas.KpiFacturas((error, resultado) => {
+    GraficaBarras.ViewGraficaBarras((error, resultado) => {
         if (error) return res.status(500).send(error);
         res.json(resultado);
     });

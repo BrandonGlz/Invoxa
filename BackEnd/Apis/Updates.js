@@ -1,10 +1,9 @@
 const Host = require('../Config/Host');
 
 //Controllers
-const ActualizarPrecio = require('../Controllers/Updates/PrecioArticulo');
+const  ActualizarContrasena  = require('../Controllers/Updates/Nueva_contra');
 
 //Rutas
-Host.use('/api/actualizarPrecio', ActualizarPrecio);
-
+Host.use('/api/actualizarContrasena', ActualizarContrasena);
 
 module.exports = Host;

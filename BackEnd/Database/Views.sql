@@ -1,11 +1,3 @@
--- Vista para dashboard: KPIs generales
-CREATE VIEW VW_Dashboard_KPI AS
-SELECT 
-    (SELECT COUNT(codigo) FROM FACTURA) AS total_facturas,
-    (SELECT COUNT(codigo) FROM FACTURA WHERE estado = 'PEN') AS facturas_pendientes,
-    (SELECT COUNT(codigo) FROM FACTURA WHERE estado = 'PAG') AS facturas_pagadas,
-    (SELECT SUM(total) FROM FACTURA WHERE estado = 'PAG') AS dinero_invertido;
-
 -- Vista para previsualización detallada de facturas
 CREATE VIEW VW_Facturas_Detalle AS
 SELECT 
@@ -39,3 +31,19 @@ FROM PROVEEDOR p
 LEFT JOIN CONTACTO c ON p.num = c.proveedor
 LEFT JOIN FACTURA f ON p.num = f.proveedor
 GROUP BY p.num;
+
+CREATE VIEW VW_Grafica_Barras AS
+SELECT 
+    MONTHNAME(fechaEmision) AS mes, 
+    COUNT(codigo) AS cantidad_facturas 
+FROM FACTURA 
+GROUP BY MONTH(fechaEmision), MONTHNAME(fechaEmision)
+ORDER BY MONTH(fechaEmision);
+
+CREATE VIEW VW_Grafica_Pastel AS
+SELECT 
+    e.descripcion AS estado_factura, 
+    COUNT(f.codigo) AS cantidad_facturas
+FROM FACTURA f
+INNER JOIN EDO_FACTURA e ON f.estado = e.codigo
+GROUP BY e.descripcion;

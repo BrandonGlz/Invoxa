@@ -1,10 +1,10 @@
-const Host = require('../Config/Host');
+//const Host = require('../Config/Host');
 
 //Controllers
-const Cliente = require('../Controllers/Procedures/Cliente');
+//const Cliente = require('../Controllers/Procedures/Cliente');
 
 //Rutas
-Host.use('/api/crearCliente', Cliente);
+//Host.use('/api/crearCliente', Cliente);
 
 
-module.exports = Host;
+//module.exports = Host;
