@@ -26,6 +26,10 @@ if (sideMenu) {
 
         if (!ruta) return;
 
+        // Marca boton como la pestaña activa y desmarca los demas
+        sideMenu.querySelectorAll("button[contenido]").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+
         try {
             await Componentes(ruta);
 
@@ -41,4 +45,8 @@ if (sideMenu) {
             console.error(err);
         }
     });
+
+    // Marca Dashboard como activo al cargar, ya que es la vista que abre por defecto
+    const btnInicial = sideMenu.querySelector('button[contenido="dashboard"]');
+    if (btnInicial) btnInicial.classList.add("active");
 }
