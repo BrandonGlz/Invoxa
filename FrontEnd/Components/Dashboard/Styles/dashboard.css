@@ -14,7 +14,7 @@
 
 .kpi-card {
     background: var(--color-blanco);
-    padding: 20px;
+    padding: 10px;
     border-radius: 12px;
     flex: 1;
     border: 2px solid #e6e9ef;
@@ -74,7 +74,7 @@
 
 .kpi-value {
     margin-top: 18px;
-    font-size: 26px;
+    font-size: 18px;
     font-weight: 700;
 }
 
@@ -152,7 +152,7 @@
 
 .chart-title {
     text-align: center;
-    font-size: 17px;
+    font-size: 18px;
     font-weight: 700;
     color: var(--azul-primario);
     margin-bottom: 18px;
