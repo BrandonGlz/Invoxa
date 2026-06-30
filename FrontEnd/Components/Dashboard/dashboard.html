@@ -1,32 +1,57 @@
 <link rel="stylesheet" href="/Invoxa/FrontEnd/Components/dashboard/Styles/dashboard.css">
 
 <div class="invoxa-dashboard-kpi">
-    <div class="kpi-card">
-        <h3>Total de facturas</h3>
-        <p id="kpi-total">0</p>
+    <div class="kpi-card kpi-azul">
+        <div class="kpi-top">
+            <span class="kpi-title">Total de facturas</span>
+            <span class="kpi-icon">
+                <img src="/Invoxa/FrontEnd/api/content/dashboard/totalFacturas.png" alt="Total facturas">
+            </span>
+        </div>
+        <p class="kpi-value" id="kpi-total">0</p>
     </div>
-    <div class="kpi-card">
-        <h3>Facturas pendientes</h3>
-        <p id="kpi-pendientes">0</p>
+
+    <div class="kpi-card kpi-naranja">
+        <div class="kpi-top">
+            <span class="kpi-title">Facturas pendientes</span>
+            <span class="kpi-icon">
+                <img src="/Invoxa/FrontEnd/api/content/dashboard/facturasPendientes.png" alt="Facturas pendientes">
+            </span>
+        </div>
+        <p class="kpi-value" id="kpi-pendientes">0</p>
     </div>
-    <div class="kpi-card">
-        <h3>Facturas pagadas</h3>
-        <p id="kpi-pagadas">0</p>
+
+    <div class="kpi-card kpi-verde">
+        <div class="kpi-top">
+            <span class="kpi-title">Facturas pagadas</span>
+            <span class="kpi-icon">
+                <img src="/Invoxa/FrontEnd/api/content/dashboard/facturasPagadas.png" alt="Facturas pagadas">
+            </span>
+        </div>
+        <p class="kpi-value" id="kpi-pagadas">0</p>
     </div>
-    <div class="kpi-card">
-        <h3>Dinero invertido</h3>
-        <p id="kpi-invertido">$0</p>
+
+    <div class="kpi-card kpi-morado">
+        <div class="kpi-top">
+            <span class="kpi-title">Dinero invertido</span>
+            <span class="kpi-icon">
+                <img src="/Invoxa/FrontEnd/api/content/dashboard/dineroInvertido.png" alt="Dinero invertido">
+            </span>
+        </div>
+        <p class="kpi-value" id="kpi-invertido">$0</p>
     </div>
 </div>
 
 <div class="invoxa-dashboard-charts">
     <div class="chart-card">
-        <div style="position: relative; height: 350px; width: 100%;">
+        <h3 class="chart-title">Facturas por mes</h3>
+        <div class="chart-wrap">
             <canvas id="graficaBarras"></canvas>
         </div>
     </div>
     <div class="chart-card">
-        <div style="position: relative; height: 350px; width: 100%;">
+        <h3 class="chart-title">Estado de facturas</h3>
+        <div class="chart-wrap">
             <canvas id="graficaPastel"></canvas>
         </div>
     </div>

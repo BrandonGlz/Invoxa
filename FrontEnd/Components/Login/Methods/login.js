@@ -1,6 +1,6 @@
 const procesarAutenticacion = async (usuario, password) => {
     try {
-        const endpoint = 'http://localhost:3000/api/login'; 
+        const endpoint = 'http://localhost:8000/api/login/';  // ojo con la diagonal al final
         const contenedorError = document.getElementById('div-error-login');
         
         if (contenedorError) {
@@ -19,6 +19,7 @@ const procesarAutenticacion = async (usuario, password) => {
 
         const respuesta = await peticion.json();
 
+        // El service devuelve [{ num: 1 }] si es válido, [] si no
         if (respuesta.length > 0 && respuesta[0].num) {
             sessionStorage.setItem('invoxa_session', respuesta[0].num);
             window.location.replace('/Invoxa/FrontEnd/index.html');

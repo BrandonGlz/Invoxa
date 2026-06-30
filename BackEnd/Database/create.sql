@@ -1,0 +1,123 @@
+DROP DATABASE IF EXISTS invoxa;
+CREATE DATABASE invoxa;
+
+-- SIN LLAVES FORANEAS
+
+CREATE TABLE EDO_USUARIO(
+    codigo VARCHAR(3) PRIMARY KEY,
+    descripcion VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE EDO_PROVEEDOR(
+    codigo VARCHAR(3) PRIMARY KEY,
+    descripcion VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE EDO_FACTURA(
+    codigo VARCHAR(3) PRIMARY KEY,
+    descripcion VARCHAR(20) NOT NULL
+);
+
+CREATE TABLE PERSONA(
+    num SERIAL PRIMARY KEY,
+    nombrePila VARCHAR(20) NOT NULL,
+    primApell VARCHAR(20) NOT NULL,
+    segApell VARCHAR(20) NOT NULL,
+    correo VARCHAR(50) NOT NULL
+);
+
+CREATE TABLE ROL(
+    codigo VARCHAR(3) PRIMARY KEY,
+    descripcion VARCHAR(20) NOT NULL   
+);
+
+CREATE TABLE COMP_PAGO(
+    num SERIAL PRIMARY KEY,
+    fecha DATE NOT NULL,
+    cuenta CHAR(18) NOT NULL
+);
+
+CREATE TABLE SUCURSAL(
+    codigo VARCHAR(3) PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    rfc CHAR(13) NOT NULL,
+    numCelular CHAR(10) NOT NULL,
+    correo VARCHAR(50) NOT NULL
+);
+
+-- CON LLAVES FORANEAS
+
+CREATE TABLE USUARIO(
+    num SERIAL PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    contraseña VARCHAR(20) NOT NULL,
+    persona INT NOT NULL,
+    estado VARCHAR(3) NOT NULL,
+    rol VARCHAR(3) NOT NULL,
+    FOREIGN KEY(persona) REFERENCES PERSONA(num),
+    FOREIGN KEY(estado) REFERENCES EDO_USUARIO(codigo),
+    FOREIGN KEY(rol) REFERENCES ROL(codigo)
+);
+
+CREATE TABLE PROVEEDOR(
+    num SERIAL PRIMARY KEY,
+    nombre VARCHAR(20) NOT NULL,
+    rfc CHAR(13) NOT NULL,
+    usuario INT NOT NULL,
+    estado VARCHAR(3) NOT NULL,
+    sucursal VARCHAR(3) NOT NULL,
+    FOREIGN KEY(usuario) REFERENCES USUARIO(num),
+    FOREIGN KEY(estado) REFERENCES EDO_PROVEEDOR(codigo),
+    FOREIGN KEY(sucursal) REFERENCES SUCURSAL(codigo) 
+);
+
+CREATE TABLE CONTACTO(
+    num SERIAL PRIMARY KEY,
+    correo VARCHAR(50) NOT NULL,
+    proveedor INT NOT NULL,
+    FOREIGN KEY(proveedor) REFERENCES PROVEEDOR(num)
+);
+
+CREATE TABLE FACTURA(
+    codigo VARCHAR(5) PRIMARY KEY,
+    descripcion VARCHAR(50) NOT NULL,
+    fechaEmision DATE NOT NULL,
+    precioUnitario DECIMAL(10,2) NOT NULL,
+    cantidad INT NOT NULL,
+    total DECIMAL(10,2) NOT NULL, 
+    subTotal DECIMAL(10,2) NOT NULL, 
+    iva DECIMAL(10,2) NOT NULL,
+    limitePago DATE NOT NULL,
+    estado VARCHAR(3) NOT NULL,
+    proveedor INT NOT NULL,
+    comprobante INT NULL,
+    FOREIGN KEY(estado) REFERENCES EDO_FACTURA(codigo),
+    FOREIGN KEY(proveedor) REFERENCES PROVEEDOR(num),
+    FOREIGN KEY(comprobante) REFERENCES COMP_PAGO(num)
+);
+
+CREATE TABLE REPORTE(
+    num SERIAL PRIMARY KEY,
+    nombre VARCHAR(30) NOT NULL,
+    fecha DATE NOT NULL,
+    usuario INT NOT NULL,
+    FOREIGN KEY(usuario) REFERENCES USUARIO(num)
+);
+
+-- RELACION DE MUCHOS A MUCHOS
+
+CREATE TABLE FACTURA_PROVEEDOR(
+    factura VARCHAR(5),
+    proveedor INT,
+    PRIMARY KEY(factura, proveedor),
+    FOREIGN KEY(factura) REFERENCES FACTURA(codigo),
+    FOREIGN KEY(proveedor) REFERENCES PROVEEDOR(num)
+);
+
+CREATE TABLE REPORTE_FACTURA(
+    reporte INT,
+    factura VARCHAR(5),
+    PRIMARY KEY(reporte, factura),
+    FOREIGN KEY(reporte) REFERENCES REPORTE(num),
+    FOREIGN KEY(factura) REFERENCES FACTURA(codigo)
+);

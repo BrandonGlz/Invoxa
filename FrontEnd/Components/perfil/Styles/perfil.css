@@ -1,0 +1,267 @@
+/* ===== Layout general de Mi Perfil ===== */
+.invoxa-perfil {
+    display: flex;
+    gap: 20px;
+    width: 100%;
+    align-items: stretch;
+    /* Ocupa toda la altura del area de contenido (#content: 100vh - header 80px - padding 40px) */
+    min-height: calc(100vh - 120px);
+}
+
+/* ===== Columna izquierda: tarjeta de perfil ===== */
+.perfil-tarjeta {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 300px;
+    flex-shrink: 0;
+    background: var(--color-blanco);
+    padding: 28px 24px;
+    border-radius: 12px;
+    border: 1px solid #e6e9ef;
+    box-shadow: 0 6px 18px rgba(0, 34, 68, 0.10);
+}
+
+.perfil-volver {
+    position: absolute;
+    top: 24px;
+    left: 24px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    border-radius: 8px;
+    color: var(--azul-primario);
+    cursor: pointer;
+    transition: background 0.15s ease;
+}
+
+.perfil-volver:hover {
+    background: #eef2f8;
+}
+
+.perfil-volver svg {
+    width: 22px;
+    height: 22px;
+}
+
+.perfil-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-top: 18px;
+    border: 4px solid var(--azul-primario);
+    background: #d4e6fb;
+}
+
+.perfil-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.invoxa-perfil .perfil-nombre {
+    margin-top: 18px;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--azul-primario);
+    text-align: center;
+}
+
+.invoxa-perfil .perfil-rol {
+    margin-top: 4px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #6b7280;
+    text-align: center;
+}
+
+.perfil-miembro {
+    margin-top: auto;
+    padding-top: 28px;
+    font-size: 13px;
+    color: #9aa3b2;
+    text-align: center;
+}
+
+/* ===== Columna derecha ===== */
+.perfil-detalle {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1;
+}
+
+.perfil-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    /* Reparte el espacio de forma pareja entre titulo y filas de campos */
+    justify-content: space-evenly;
+    background: var(--color-blanco);
+    padding: 24px 28px;
+    border-radius: 12px;
+    border: 1px solid #e6e9ef;
+    box-shadow: 0 6px 18px rgba(0, 34, 68, 0.10);
+}
+
+/* El cuerpo no crea caja propia: sus filas se distribuyen junto al titulo */
+.perfil-card-body {
+    display: contents;
+}
+
+.perfil-card-titulo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--azul-primario);
+}
+
+.perfil-card-icon {
+    display: inline-flex;
+    align-items: center;
+    color: var(--cafe);
+}
+
+.perfil-card-icon svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* ===== Campos ===== */
+.perfil-grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.perfil-campo {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.perfil-campo label {
+    font-size: 14px;
+    font-weight: 600;
+    color: #4a5568;
+}
+
+.perfil-campo input {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 14px;
+    color: var(--azul-secundario);
+    background: var(--color-blanco);
+    border: 1px solid #d6dbe4;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.perfil-campo input::placeholder {
+    color: #aeb6c2;
+}
+
+.perfil-campo input:focus {
+    border-color: var(--azul-acento);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+/* ===== Campo ancho a la izquierda + boton Editar a la derecha ===== */
+.perfil-fila-editar {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.perfil-campo-ancho {
+    flex: 0 1 60%;
+}
+
+.perfil-btn-editar {
+    flex-shrink: 0;
+    padding: 12px 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--color-blanco);
+    background: var(--azul-primario);
+    border: none;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: opacity 0.15s ease;
+}
+
+.perfil-btn-editar:hover {
+    opacity: 0.9;
+}
+
+/* ===== Input de contraseña con icono de ojo ===== */
+.perfil-input-pass {
+    position: relative;
+    max-width: 60%;
+}
+
+.perfil-input-pass input {
+    width: 100%;
+    padding: 12px 46px 12px 14px;
+    font-size: 14px;
+    color: var(--azul-secundario);
+    background: var(--color-blanco);
+    border: 1px solid #d6dbe4;
+    border-radius: 8px;
+    outline: none;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+.perfil-input-pass input:focus {
+    border-color: var(--azul-acento);
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+}
+
+.perfil-ojo {
+    position: absolute;
+    top: 50%;
+    right: 12px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    color: var(--azul-primario);
+    cursor: pointer;
+}
+
+.perfil-ojo svg {
+    width: 20px;
+    height: 20px;
+}
+
+/* ===== Responsivo ===== */
+@media (max-width: 900px) {
+    .invoxa-perfil {
+        flex-direction: column;
+    }
+
+    .perfil-tarjeta {
+        width: 100%;
+    }
+
+    .perfil-grid-3 {
+        grid-template-columns: 1fr;
+    }
+
+    .perfil-fila-editar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+}

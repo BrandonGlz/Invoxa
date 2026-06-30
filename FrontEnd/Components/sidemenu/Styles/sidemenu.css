@@ -10,7 +10,7 @@
 
 .sidemenu-container button {
     background-color: transparent;
-    padding: 10px 40px;
+    padding: 0px 40px;
     border: none;
     color: #002244;
     cursor: pointer;
@@ -21,13 +21,13 @@
     align-items: center;      
     justify-content: flex-start;  
     gap: 15px;                
-    font-size: 16px;
+    font-size: 14px;
     font-weight: bold;    
 }
 
 .sidemenu-container button .btn-icon {
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
 }
 
 .sidemenu-container button:hover {

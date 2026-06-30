@@ -1,6 +1,6 @@
 const procesarRecuperacion = async (correo) => {
     try {
-        const endpoint = 'http://localhost:3000/api/recuperar';
+        const endpoint = 'http://localhost:8000/api/recuperar-password/';
         const contenedorError = document.getElementById('div-error-recuperar');
         if (contenedorError) contenedorError.textContent = '';
         const peticion = await fetch(endpoint, {

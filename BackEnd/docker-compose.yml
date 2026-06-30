@@ -1,0 +1,17 @@
+services:
+  db:
+    image: postgres:18-alpine
+    container_name: invoxa_postgres
+    restart: always
+    environment:
+      POSTGRES_USER: invoxa_admin
+      POSTGRES_PASSWORD: invoxa_secure_pass
+      POSTGRES_DB: invoxa_db
+      TZ: UTC
+    ports:
+      - "5433:5432"
+    volumes:
+      - backend_pgdata:/var/lib/postgresql
+
+volumes:
+  backend_pgdata:

@@ -1,1 +1,104 @@
-Mi perfil
+<link rel="stylesheet" href="/Invoxa/FrontEnd/Components/perfil/Styles/perfil.css">
+
+<div class="invoxa-perfil">
+
+    <!-- ===== Columna izquierda: tarjeta de perfil ===== -->
+    <aside class="perfil-tarjeta">
+        <button class="perfil-volver" type="button" aria-label="Volver">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="19" y1="12" x2="5" y2="12"></line>
+                <polyline points="12 19 5 12 12 5"></polyline>
+            </svg>
+        </button>
+
+        <div class="perfil-avatar">
+            <img src="/Invoxa/FrontEnd/Api/config/mi_perfil/fotoPerfil.png" alt="Foto de perfil">
+        </div>
+
+        <h2 class="perfil-nombre">Nombre de usuario</h2>
+        <p class="perfil-rol">Rol</p>
+
+        <p class="perfil-miembro">Miembro desde enero 2026</p>
+    </aside>
+
+    <!-- ===== Columna derecha ===== -->
+    <section class="perfil-detalle">
+
+        <!-- Informacion personal -->
+        <div class="perfil-card">
+            <h3 class="perfil-card-titulo">
+                Informacion personal
+                <span class="perfil-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                </span>
+            </h3>
+
+            <form class="perfil-card-body" id="form-info" onsubmit="return false">
+                <div class="perfil-grid-3">
+                    <div class="perfil-campo">
+                        <label for="perfil-nombre-input">Nombre</label>
+                        <input type="text" id="perfil-nombre-input" name="nombre" placeholder="Nombre">
+                    </div>
+                    <div class="perfil-campo">
+                        <label for="perfil-apellido-paterno">Apellido paterno</label>
+                        <input type="text" id="perfil-apellido-paterno" name="apellido_paterno" placeholder="Primer apellido">
+                    </div>
+                    <div class="perfil-campo">
+                        <label for="perfil-apellido-materno">Apellido materno</label>
+                        <input type="text" id="perfil-apellido-materno" name="apellido_materno" placeholder="Segundo apellido">
+                    </div>
+                </div>
+
+                <div class="perfil-fila-editar">
+                    <div class="perfil-campo perfil-campo-ancho">
+                        <label for="perfil-correo">Correo electrónico</label>
+                        <input type="email" id="perfil-correo" name="correo" placeholder="correo@electrónico.com">
+                    </div>
+                    <button class="perfil-btn-editar" type="submit">Editar</button>
+                </div>
+            </form>
+        </div>
+
+        <!-- Seguridad y contraseña -->
+        <div class="perfil-card">
+            <h3 class="perfil-card-titulo">
+                Seguridad y contraseña
+                <span class="perfil-card-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                        <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                </span>
+            </h3>
+
+            <form class="perfil-card-body" id="form-seguridad" onsubmit="return false">
+                <div class="perfil-campo">
+                    <label for="perfil-password-actual">Contraseña actual</label>
+                    <div class="perfil-input-pass">
+                        <input type="password" id="perfil-password-actual" name="password_actual" value="********">
+                        <button class="perfil-ojo" type="button" aria-label="Mostrar contraseña">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                                <circle cx="12" cy="12" r="3"></circle>
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="perfil-fila-editar">
+                    <div class="perfil-campo perfil-campo-ancho">
+                        <label for="perfil-password-nueva">Nueva contraseña</label>
+                        <input type="password" id="perfil-password-nueva" name="password_nueva" placeholder="Debe de contener 8 caracteres, una mayuscula y un numero">
+                    </div>
+                    <button class="perfil-btn-editar" type="submit">Editar</button>
+                </div>
+            </form>
+        </div>
+
+    </section>
+</div>
+
+<script src="/Invoxa/FrontEnd/Components/perfil/Methods/perfil.js"></script>

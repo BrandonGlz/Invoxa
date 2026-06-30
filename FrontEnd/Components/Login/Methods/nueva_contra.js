@@ -1,6 +1,6 @@
 const procesarActualizacion = async (correo, codigo, nuevaContra) => {
     try {
-        const endpoint = 'http://localhost:3000/api/actualizarContrasena';
+        const endpoint = 'http://localhost:8000/api/actualizar-password/';
         const contenedorError = document.getElementById('div-error-recuperar');
         if (contenedorError) contenedorError.textContent = '';
         const peticion = await fetch(endpoint, {

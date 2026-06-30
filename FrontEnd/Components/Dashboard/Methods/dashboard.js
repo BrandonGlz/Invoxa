@@ -1,9 +1,9 @@
 const CONFIG = {
     metodo: 'GET',
     rutas: {
-        kpis: 'http://localhost:3000/api/kpiFacturas',
-        barras: 'http://localhost:3000/api/graficaBarras',
-        pastel: 'http://localhost:3000/api/graficaPastel'
+        kpis: 'http://localhost:8000/api/kpis/facturas/',
+        barras: 'http://localhost:8000/api/kpis/barras/',
+        pastel: 'http://localhost:8000/api/kpis/pastel/'
     }
 };
 
@@ -27,19 +27,17 @@ const consumirApi = async (url) => {
 const cargarKpis = async () => {
     let data = await consumirApi(CONFIG.rutas.kpis);
     
-    // Si la API falla, inserta datos de prueba visuales temporalmente
     if (!data) {
-        data = { total: 180, pendientes: 60, pagadas: 120, invertido: 1800 };
+        data = { total_facturas: 0, facturas_pendientes: 0, facturas_pagadas: 0, dinero_invertido: 0 };
     }
 
-    // Soporte para respuestas MySQL que devuelven arreglos [{ total: ... }]
     const info = Array.isArray(data) ? data[0] : data;
 
     if (info) {
-        document.getElementById('kpi-total').textContent = info.total || 0;
-        document.getElementById('kpi-pendientes').textContent = info.pendientes || 0;
-        document.getElementById('kpi-pagadas').textContent = info.pagadas || 0;
-        document.getElementById('kpi-invertido').textContent = `$${info.invertido || 0}`;
+        document.getElementById('kpi-total').textContent = info.total_facturas || 0;
+        document.getElementById('kpi-pendientes').textContent = info.facturas_pendientes || 0;
+        document.getElementById('kpi-pagadas').textContent = info.facturas_pagadas || 0;
+        document.getElementById('kpi-invertido').textContent = `$${info.dinero_invertido || 0}`;
     }
 };
 
@@ -48,13 +46,12 @@ const cargarGraficaBarras = async () => {
     
     if (!data) {
         data = [
-            { mes: 'Enero', cantidad: 120 }, { mes: 'Febrero', cantidad: 110 },
-            { mes: 'Marzo', cantidad: 135 }, { mes: 'Abril', cantidad: 165 },
-            { mes: 'Mayo', cantidad: 140 }
+            { mes: 'Enero', cantidad_facturas: 0 },
+            { mes: 'Febrero', cantidad_facturas: 0 },
+            { mes: 'Marzo', cantidad_facturas: 0 }
         ];
     }
 
-    // Chart.js requiere un arreglo para mapear
     const listaDatos = Array.isArray(data) ? data : [data];
 
     const canvas = document.getElementById('graficaBarras');
@@ -64,10 +61,10 @@ const cargarGraficaBarras = async () => {
     new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: listaDatos.map(item => item.mes || item.nombre_mes || 'N/A'), 
+            labels: listaDatos.map(item => item.mes || 'N/A'),
             datasets: [{
                 label: 'Facturas por mes',
-                data: listaDatos.map(item => item.cantidad || item.total || 0), 
+                data: listaDatos.map(item => item.cantidad_facturas || 0),
                 backgroundColor: '#386bc0',
                 borderRadius: 4
             }]
@@ -81,9 +78,7 @@ const cargarGraficaPastel = async () => {
     
     if (!data) {
         data = [
-            { estado: 'Pagado', cantidad: 45 }, 
-            { estado: 'Autorizado', cantidad: 25 }, 
-            { estado: 'Pendiente', cantidad: 30 }
+            { estado_factura: 'Sin datos', cantidad_facturas: 0 }
         ];
     }
 
@@ -96,9 +91,9 @@ const cargarGraficaPastel = async () => {
     new Chart(ctx, {
         type: 'pie',
         data: {
-            labels: listaDatos.map(item => item.estado || item.status || 'N/A'),
+            labels: listaDatos.map(item => item.estado_factura || 'N/A'),
             datasets: [{
-                data: listaDatos.map(item => item.cantidad || item.total || 0),
+                data: listaDatos.map(item => item.cantidad_facturas || 0),
                 backgroundColor: ['#6dd69a', '#b78fd1', '#f5c065'],
                 borderWidth: 1
             }]
@@ -108,7 +103,6 @@ const cargarGraficaPastel = async () => {
 };
 
 const inicializarDashboard = async () => {
-    // Retraso ligero para asegurar que el DOM inyectado exista
     setTimeout(async () => {
         await cargarKpis();
         await cargarGraficaBarras();
