@@ -29,7 +29,6 @@
 
 .kpi-title {
     font-size: 14px;
-    font-weight: 600;
     color: #4a5568;
 }
 
@@ -84,7 +83,7 @@
     border-color: #d6e6fa;
 }
 .kpi-azul .kpi-icon {
-    background: #d4e6fb;
+    background: #7FB3D5;
     color: var(--azul-acento);
 }
 .kpi-azul .kpi-value {
@@ -97,7 +96,7 @@
     border-color: #f6e4c6;
 }
 .kpi-naranja .kpi-icon {
-    background: #f8e4c0;
+    background: #F8C471;
     color: #e09b2d;
 }
 .kpi-naranja .kpi-value {
@@ -110,7 +109,7 @@
     border-color: #cdecd9;
 }
 .kpi-verde .kpi-icon {
-    background: #c9ecd6;
+    background: #82E0AA;
     color: var(--verde-exito);
 }
 .kpi-verde .kpi-value {
@@ -123,7 +122,7 @@
     border-color: #e4d6f4;
 }
 .kpi-morado .kpi-icon {
-    background: #e6d6f5;
+    background: #BB8FCE;
     color: #8e5bc4;
 }
 .kpi-morado .kpi-value {
@@ -164,3 +163,4 @@
     width: 100%;
     min-height: 280px;
 }
+    
