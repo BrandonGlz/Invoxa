@@ -12,8 +12,8 @@
 }
 
 .header-left .img {
-    width: 160px; 
-    height: 160px;
+    width: 140px; 
+    height: 140px;
     position: absolute;
     left: 125px; 
     top: 100px; 
@@ -57,8 +57,8 @@
 }
 
 .icono-notificacion {
-    width: 22px;
-    height: 22px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
@@ -79,8 +79,8 @@
 }
 
 .icono-perfil {
-    width: 26px;
-    height: 26px;
+    width: 28px;
+    height: 28px;
     object-fit: contain;
 }
 
@@ -109,7 +109,7 @@
     position: absolute;
     top: calc(100% + 20px);
     right: 0;
-    width: 260px;
+    width: 270px;
     background-color: #ffffff;
     border-radius: 12px;
     box-shadow: 0px 8px 24px rgba(0, 0, 0, 0.15);
@@ -202,4 +202,9 @@ hr {
 
 .logout {
     color: #c92a2a;
+}
+
+.icono-dropdown {
+    width: 28px;
+    height: 28px;
 }
